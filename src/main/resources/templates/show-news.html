@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>News</title>
+</head>
+<body>
+    <h4 th:text="${sourceCount} + ' articles found.'"></h4>
+    <div th:each="post : ${posts}">
+        <a th:href="@{${post.url}}" target="_blank"><h2 th:text="${post.title}"></h2></a>
+        <p th:text="${post.source + ' ' + post.publishedAt}"></p>
+        <p th:text="${post.description}"></p>
+    </div>
+
+</body>
+</html>
