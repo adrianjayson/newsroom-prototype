@@ -7,9 +7,11 @@ public class SourceRepository {
     private static String apiKey = "4e17299fccae427b9b2e4783a736f54b";
 
     public static final Source[] SOURCES = {
-            new Source("BBC", domain, "bbc-news", "top", apiKey),
-            new Source("CNN", domain, "cnn", "top", apiKey),
-            new Source("Reuters", domain, "reuters", "top", apiKey)
+            new Source("BBC", "headlines", domain, "bbc-news", "top", apiKey),
+            new Source("CNN", "headlines", domain, "cnn", "top", apiKey),
+            new Source("Reuters", "headlines", domain, "reuters", "top", apiKey),
+            new Source("Engadget", "technology", domain, "engadget", "top", apiKey),
+            new Source("TechCrunch", "technology", domain, "techcrunch", "top", apiKey)
     };
 
     public static String getSourceName(String id) {

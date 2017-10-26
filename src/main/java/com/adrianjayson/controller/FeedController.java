@@ -9,40 +9,39 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.PreDestroy;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class FeedController {
 
     private static final Logger log = LoggerFactory.getLogger(FeedController.class);
-    private List<Post> posts = new ArrayList<>();
+    private List<Post> posts = new LinkedList<>();
 
-    @RequestMapping("/show-news")
-    public String showNews(ModelMap modelMap) {
+    @RequestMapping("/{category}")
+    public String showNews(@PathVariable String category, ModelMap modelMap) {
         if (this.posts.size() > 0) {
             this.posts.clear();
         }
-        fetchNews(SourceRepository.SOURCES);
+        fetchNews(SourceRepository.SOURCES, category);
         sortPostsToLatest();
 
         modelMap.put("posts", this.posts);
-        modelMap.put("sourceCount", this.posts.size());
+        modelMap.put("category", category);
         return "show-news";
     }
 
-    private void fetchNews(Source[] sources) {
+    private void fetchNews(Source[] sources, String category) {
         RestTemplate restTemplate = new RestTemplate();
         for (Source source :
                 sources) {
-            News news = restTemplate.getForObject(source.getSourceUrl(), News.class);
-            addToPosts(news);
+            if (source.getCategory().equals(category)) {
+                News news = restTemplate.getForObject(source.getSourceUrl(), News.class);
+                addToPosts(news);
+            }
         }
     }
 
