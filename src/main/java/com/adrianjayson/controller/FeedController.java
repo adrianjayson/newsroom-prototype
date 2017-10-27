@@ -21,6 +21,11 @@ public class FeedController {
     private static final Logger log = LoggerFactory.getLogger(FeedController.class);
     private List<Post> posts = new LinkedList<>();
 
+    @RequestMapping("/")
+    public String index() {
+        return "redirect:/headlines";
+    }
+
     @RequestMapping("/{category}")
     public String showNews(@PathVariable String category, ModelMap modelMap) {
         if (this.posts.size() > 0) {
