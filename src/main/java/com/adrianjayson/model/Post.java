@@ -1,6 +1,7 @@
 package com.adrianjayson.model;
 
 import com.adrianjayson.library.SourceLibrary;
+import org.ocpsoft.prettytime.PrettyTime;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -76,8 +77,13 @@ public class Post {
         if (publishedAt == null) {
             return "";
         }
-        SimpleDateFormat formatter = new SimpleDateFormat("MMM d, y hh:mm a");
-        return formatter.format(publishedAt);
+
+        PrettyTime formatter = new PrettyTime();
+        return " | " + formatter.format(publishedAt);
+    }
+
+    public Date getPublishedAtDateObject() {
+        return this.publishedAt;
     }
 
     public void setPublishedAt(Date publishedAt) {

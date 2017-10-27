@@ -15,7 +15,7 @@ public class SourceLibrary {
             new Source("Bloomberg", "business", domain, "bloomberg", "top", apiKey),
             new Source("The Wall Street Journal", "business", domain, "the-wall-street-journal", "top", apiKey),
             new Source("National Geographic", "science", domain, "national-geographic", "top", apiKey),
-            new Source("The Wall Street Journal", "science", domain, "new-scientist", "top", apiKey),
+            new Source("New Scientist", "science", domain, "new-scientist", "top", apiKey),
             new Source("BBC Sport", "sports", domain, "bbc-sport", "top", apiKey),
             new Source("ESPN", "sports", domain, "espn", "top", apiKey)
     };

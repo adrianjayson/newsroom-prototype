@@ -49,7 +49,15 @@ public class FeedController {
         Collections.sort(posts, new Comparator<Post>() {
             @Override
             public int compare(Post post, Post t1) {
-                int v = post.getPublishedAt().compareTo(t1.getPublishedAt());
+                if ((post.getPublishedAtDateObject() == null) & (t1.getPublishedAtDateObject() == null)) {
+                    return 0;
+                } else if(post.getPublishedAtDateObject() == null) {
+                    return 1;
+                } else if (t1.getPublishedAtDateObject() == null) {
+                    return -1;
+                }
+
+                int v = post.getPublishedAtDateObject().compareTo(t1.getPublishedAtDateObject());
 
                 return v;
             }

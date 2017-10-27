@@ -19,6 +19,9 @@ jar {
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
 }
 
 sourceCompatibility = 1.8
@@ -30,6 +33,7 @@ dependencies {
 //    compile("com.fasterxml.jackson.core:jackson-databind")
 //    testCompile("org.springframework.boot:spring-boot-starter-test")
     compile ('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile group: "org.ocpsoft.prettytime", name: "prettytime", version: "3.2.7.Final"
     // https://mvnrepository.com/artifact/org.json/json
     compile group: 'org.json', name: 'json', version: '20160810'
     // https://mvnrepository.com/artifact/junit/junit

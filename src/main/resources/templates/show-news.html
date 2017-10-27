@@ -40,7 +40,7 @@
             <div class="span8">
                 <div th:each="post : ${posts}">
                     <h2 th:text="${post.title}"></h2>
-                    <p><small th:text="${post.source + ' | ' + post.publishedAt}"></small></p>
+                    <p><small th:text="${post.source + post.publishedAt}"></small></p>
                     <p th:text="${post.description}"></p>
                     <div>
                         <div class="more label"><a th:href="@{${post.url}}" target="_blank">Read more</a></div>
