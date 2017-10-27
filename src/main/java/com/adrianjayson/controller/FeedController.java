@@ -4,7 +4,7 @@ import com.adrianjayson.model.Article;
 import com.adrianjayson.model.News;
 import com.adrianjayson.model.Post;
 import com.adrianjayson.model.Source;
-import com.adrianjayson.repository.SourceRepository;
+import com.adrianjayson.library.SourceLibrary;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ public class FeedController {
         if (this.posts.size() > 0) {
             this.posts.clear();
         }
-        fetchNews(SourceRepository.SOURCES, category);
+        fetchNews(SourceLibrary.SOURCES, category);
         sortPostsToLatest();
 
         modelMap.put("posts", this.posts);

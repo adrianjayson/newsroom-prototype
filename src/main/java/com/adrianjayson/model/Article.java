@@ -1,6 +1,5 @@
 package com.adrianjayson.model;
 
-import com.adrianjayson.repository.SourceRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Date;

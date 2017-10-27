@@ -1,10 +1,9 @@
 package com.adrianjayson.model;
 
-import com.adrianjayson.repository.SourceRepository;
+import com.adrianjayson.library.SourceLibrary;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 public class Post {
     private String source;
@@ -26,7 +25,7 @@ public class Post {
     }
 
     public String getSource() {
-        return SourceRepository.getSourceName(source);
+        return SourceLibrary.getSourceName(source);
     }
 
     public void setSource(String source) {
